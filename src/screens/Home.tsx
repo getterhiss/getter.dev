@@ -7,6 +7,11 @@ const Home = () => {
 
   useEffect(()=>{
     BootSplash.hide({ fade: true });
+
+    // FIXME: ***** Testing ONLY *****
+    // throw new Error('💥 CABOOM 💥');
+    // FIXME: ***** Testing ONLY *****
+
   }, []);
 
   return (
