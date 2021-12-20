@@ -27,6 +27,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import RNBootSplash from "react-native-bootsplash";
+
 const Section: React.FC<{
   title: string;
 }> = ({children, title}) => {
@@ -61,6 +63,14 @@ const App = () => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      RNBootSplash.hide({ fade: true });
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [])
 
   return (
     <SafeAreaView style={backgroundStyle}>
