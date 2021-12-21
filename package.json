@@ -23,6 +23,7 @@
     "react-error-boundary": "^3.1.4",
     "react-native": "0.66.4",
     "react-native-bootsplash": "^4.0.2",
+    "react-native-config": "^1.4.5",
     "react-native-device-info": "^8.4.8",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.10.1"
