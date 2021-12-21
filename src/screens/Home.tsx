@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
 import BootSplash from 'react-native-bootsplash';
 import { getUniqueId } from 'react-native-device-info';
 import Config from 'react-native-config';
 
-const Home = () => {
+const Home = ({ navigation }: any) => {
 
   const [quote, setQuote] = useState('');
   const [token, setToken] = useState('');
@@ -40,7 +40,12 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      <Text>{quote}</Text>
+      <Text style={styles.text}>{quote} {quote && ' - Kanye'}</Text>
+      <Button 
+        onPress={() => navigation.navigate('Video', { token })} 
+        title={'Video Chat'}
+        color={'black'}
+      />
     </View>
   );
 }
@@ -48,10 +53,15 @@ export default Home;
 
 const styles = StyleSheet.create({
   container: {
-  flex: 1,
-  flexDirection: 'column',
+    flex: 1,
+    flexDirection: 'column',
     backgroundColor: '#ffc0cb',
     justifyContent: "center",
     alignItems: 'center'
-  }
+  },
+  text: {
+    paddingHorizontal: 20,
+    textAlign: 'center',
+    marginBottom: 40
+  },
 });

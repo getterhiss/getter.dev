@@ -1,0 +1,11 @@
+diff --git a/node_modules/react-native-twilio-video-webrtc/react-native-twilio-video-webrtc.podspec b/node_modules/react-native-twilio-video-webrtc/react-native-twilio-video-webrtc.podspec
+index f240038..122bb30 100644
+--- a/node_modules/react-native-twilio-video-webrtc/react-native-twilio-video-webrtc.podspec
++++ b/node_modules/react-native-twilio-video-webrtc/react-native-twilio-video-webrtc.podspec
+@@ -19,5 +19,5 @@ Pod::Spec.new do |s|
+   s.source_files   = 'ios/*.{h,m}'
+ 
+   s.dependency 'React'
+-  s.dependency 'TwilioVideo', '~> 3.7'
++  s.dependency 'TwilioVideo', '~> 4.6'
+ end

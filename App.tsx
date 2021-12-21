@@ -10,6 +10,7 @@ import ErrorHandler  from './src/Error';
 
 import SplashScreen from './src/screens/Splash';
 import HomeScreen from './src/screens/Home';
+import VideoScreen from './src/screens/Video';
 
 /**
  * https://reactnavigation.org/docs/native-stack-navigator#options
@@ -26,15 +27,13 @@ function App() {
             headerShown: false,
           }}
         >
-          <Stack.Screen
-            name="Splash"
-            component={SplashScreen}
-          />
+          <Stack.Screen name="Splash" component={SplashScreen} />
           <Stack.Screen
             name="Home"
             component={HomeScreen}
             options={{animation: 'fade'}}
           />
+          <Stack.Screen name="Video" component={VideoScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </ErrorBoundary>
