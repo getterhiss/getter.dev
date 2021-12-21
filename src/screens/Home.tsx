@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
 import BootSplash from 'react-native-bootsplash';
 import { getUniqueId } from 'react-native-device-info';
 
 const Home = () => {
+
+  const [quote, setQuote] = useState('');
 
   useEffect(()=>{
     BootSplash.hide({ fade: true });
@@ -14,13 +16,18 @@ const Home = () => {
     // FIXME: ***** Testing ONLY *****
 
     const uid = getUniqueId();
-    console.log({ uid });
+
+    // Ping Kanye {W}EST API
+    fetch('https://api.kanye.rest')
+      .then((res) => res.json())
+      .then((res) => setQuote(res.quote))
+      .catch((err) => console.warn('Error Kanye Quote: ', err?.message));
     
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text>Hello World!</Text>
+      <Text>{quote}</Text>
     </View>
   );
 }
