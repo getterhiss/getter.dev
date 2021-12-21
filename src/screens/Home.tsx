@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
 import BootSplash from 'react-native-bootsplash';
+import { getUniqueId } from 'react-native-device-info';
 
 const Home = () => {
 
@@ -12,6 +13,9 @@ const Home = () => {
     // throw new Error('💥 CABOOM 💥');
     // FIXME: ***** Testing ONLY *****
 
+    const uid = getUniqueId();
+    console.log({ uid });
+    
   }, []);
 
   return (
