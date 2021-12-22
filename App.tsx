@@ -6,11 +6,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { ErrorBoundary } from 'react-error-boundary';
-import ErrorHandler  from './src/Error';
+import ErrorHandler  from 'components/Error';
 
-import SplashScreen from './src/screens/Splash';
-import HomeScreen from './src/screens/Home';
-import VideoScreen from './src/screens/Video';
+import SplashScreen from 'screens/Splash';
+import HomeScreen from 'screens/Home';
+import VideoScreen from 'screens/Video';
 
 /**
  * https://reactnavigation.org/docs/native-stack-navigator#options

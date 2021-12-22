@@ -37,8 +37,13 @@
 
     /* Module Resolution Options */
     "moduleResolution": "node",               /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
-    // "baseUrl": "./",                       /* Base directory to resolve non-absolute module names. */
-    // "paths": {},                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
+    "baseUrl": "src",                         /* Base directory to resolve non-absolute module names. */
+    "paths": {                                /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
+      "assets/*": ["./assets/*"],
+      "screens/*": ["./screens/*"],
+      "utils/*": ["./utils/*"],
+      "src/*": ["./*"]
+    },
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "typeRoots": [],                       /* List of folders to include type definitions from. */
     // "types": [],                           /* Type declaration files to be included in compilation. */
@@ -46,7 +51,8 @@
     "esModuleInterop": true,                  /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
     // "preserveSymlinks": true,              /* Do not resolve the real path of symlinks. */
     "skipLibCheck": false,                    /* Skip type checking of declaration files. */
-    "resolveJsonModule": true                 /* Allows importing modules with a ‘.json’ extension, which is a common practice in node projects. */
+    "resolveJsonModule": true,                /* Allows importing modules with a ‘.json’ extension, which is a common practice in node projects. */
+    "useUnknownInCatchVariables": false       /* override strict's default (https://stackoverflow.com/a/68984310) */,
 
     /* Source Map Options */
     // "sourceRoot": "./",                    /* Specify the location where debugger should locate TypeScript files instead of source locations. */

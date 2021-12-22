@@ -3,7 +3,7 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 
 import BootSplash from 'react-native-bootsplash';
 import { getUniqueId } from 'react-native-device-info';
-import { twilio } from '../utils/jwt';
+import { twilio } from 'utils/jwt';
 
 const Home = ({ navigation }: any) => {
 
