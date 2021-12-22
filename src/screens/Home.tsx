@@ -3,21 +3,20 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 
 import BootSplash from 'react-native-bootsplash';
 import { getUniqueId } from 'react-native-device-info';
-import Config from 'react-native-config';
+import { twilio } from '../utils/jwt';
 
 const Home = ({ navigation }: any) => {
 
   const [quote, setQuote] = useState('');
   const [token, setToken] = useState('');
 
-  useEffect(()=>{
+  useEffect(() => {
     BootSplash.hide({ fade: true });
 
     // FIXME: ***** Testing ONLY *****
     // throw new Error('💥 CABOOM 💥');
     // FIXME: ***** Testing ONLY *****
 
-    const endpoint = Config.TWILIO_JWT_ENDPOINT;
     const room = 'test';
     const uid = getUniqueId();
 
@@ -27,25 +26,21 @@ const Home = ({ navigation }: any) => {
       .then((res) => setQuote(res.quote))
       .catch((err) => console.warn('Error Kanye Quote: ', err?.message));
     
-    // Get a Twilio JWT Token
-    fetch(`${endpoint}?room=${room}&uid=${uid}`)
-      .then((res) => res.json())
-      .then((res) => {
-        console.log('Twilio JWT: ', res.token);
-        setToken(res.token);
-      })
-      .catch((err) => console.log('Error JWT Token: ', err?.message));
-
+    // Generate a Twilio JWT Token
+    const jwt = twilio(uid, room);
+    if(jwt){
+      setToken(jwt);
+    }
   }, []);
 
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{quote} {quote && ' - Kanye'}</Text>
-      <Button 
+      {!!token && <Button 
         onPress={() => navigation.navigate('Video', { token })} 
         title={'Video Chat'}
         color={'black'}
-      />
+      />}
     </View>
   );
 }

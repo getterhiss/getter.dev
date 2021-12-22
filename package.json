@@ -18,6 +18,7 @@
   "dependencies": {
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
+    "jsrsasign": "^10.5.1",
     "lottie-ios": "^3.2.3",
     "lottie-react-native": "^5.0.1",
     "patch-package": "^6.4.7",
@@ -36,6 +37,7 @@
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^2.0.0",
     "@types/jest": "^26.0.23",
+    "@types/jsrsasign": "^8.0.13",
     "@types/react-native": "^0.66.4",
     "@types/react-test-renderer": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^5.7.0",
