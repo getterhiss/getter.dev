@@ -41,8 +41,6 @@
 	<string>We need access to your camera for video chatting.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>We need access to your microphone for video chatting.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
 	<key>UILaunchStoryboardName</key>
 	<string>BootSplash</string>
 	<key>UIRequiredDeviceCapabilities</key>

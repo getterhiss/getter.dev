@@ -12,6 +12,10 @@ target 'getterhiss' do
     :hermes_enabled => true
   )
 
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'Permission-Microphone', :path => "#{permissions_path}/Microphone"
+
   target 'getterhissTests' do
     inherit! :complete
     # Pods for testing

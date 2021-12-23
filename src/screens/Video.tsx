@@ -1,6 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
 
 import {
+  Alert,
+  Linking,
+  Platform,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -13,6 +16,8 @@ import {
   TwilioVideo
 } from 'react-native-twilio-video-webrtc';
 
+import { requestAndroidPermissions, requestiOSPermissions } from 'utils/permissions';
+
 const Video = ({ navigation, route }: any) => {
 
   const [isAudioEnabled, setIsAudioEnabled] = useState<boolean>(true);
@@ -20,26 +25,68 @@ const Video = ({ navigation, route }: any) => {
   const [videoTracks, setVideoTracks] = useState<any>(new Map());
 
   const token = route?.params?.token;
-  // console.log('Token passed: ', token);
 
   const twilioRef = useRef<any>(null);
 
   useEffect(() => {
-    if (token && twilioRef.current) {
-      twilioRef.current.connect({ accessToken: token });
-      setStatus('connecting');
+    if (token && twilioRef?.current && status === 'disconnected') {
+      _connect();
     }
-  }, []);
-  
+
+    return () => {
+      console.log('Cleaning up TwilioVideo...');
+			if(twilioRef && twilioRef.current) {
+				twilioRef.current.disconnect();
+				twilioRef.current = null;
+			}
+    };
+  }, [token]);
+
+  const _connect = async() => {
+		setStatus('connecting'); 
+		
+		let granted = false;
+		if(Platform.OS === 'android') {
+      granted = await requestAndroidPermissions();
+    } else {
+      granted = await requestiOSPermissions();
+    }
+
+		if(!granted) {
+			Alert.alert(
+				'Permissions Error', 
+				'Please grant use of your camera and microphone for video chat.', 
+				[
+          { text: 'Exit', onPress: () => navigation.pop(), style: 'cancel' },
+          { text: 'Open Settings', onPress: () => Linking.openSettings(), style: 'default' } 
+        ]
+      );
+			return; 
+		}
+
+    twilioRef?.current?.connect({ accessToken: token});
+	};
+
   const _onEndButtonPress = () => {
-    twilioRef?.current?.disconnect();
-    navigation.pop();
+    Alert.alert(
+			'Close Video Chat', 
+			'Are you sure you want to close the video chat?', 
+			[
+        {text: 'Exit Chat', onPress: () => _onDisconnect(), style: 'default'},
+        {text: 'Continue Chat', onPress: () => {}, style: 'cancel'}
+      ]
+		);
   };
+
+  const _onDisconnect = () => {
+    twilioRef?.current?.disconnect();
+		navigation.pop();
+  }
 
   const _onMuteButtonPress = () => {
     twilioRef?.current
       ?.setLocalAudioEnabled(!isAudioEnabled)
-      .then((isEnabled: any) => setIsAudioEnabled(isEnabled));
+      .then((isEnabled: boolean) => setIsAudioEnabled(isEnabled));
   };
 
   const _onFlipButtonPress = () => {
@@ -48,20 +95,25 @@ const Video = ({ navigation, route }: any) => {
 
   const _onRoomDidConnect = ({roomName, error}: any) => {
     console.log('onRoomDidConnect: ', roomName);
-
     setStatus('connected');
   };
 
   const _onRoomDidDisconnect = ({ roomName, error }: any) => {
     console.log('[Disconnect]ERROR: ', error);
-
     setStatus('disconnected');
+    navigation.pop();
   };
 
   const _onRoomDidFailToConnect = (error: any) => {
     console.log('[FailToConnect]ERROR: ', error);
-
     setStatus('disconnected');
+    Alert.alert(
+      'Failed to Connect',
+      'We were not able to connect to the video chat room.', 
+		  [
+        { onPress: () => navigation.pop() }, 
+      ]
+    );
   };
 
   const _onParticipantAddedVideoTrack = ({ participant, track }: any) => {
