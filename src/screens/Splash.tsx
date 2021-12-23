@@ -13,25 +13,17 @@ const Splash = ({ navigation }: any) => {
    * Show the animation
    */
   useEffect(()=>{
-    const timer = setTimeout(() => {
-      BootSplash.hide({ fade: true });
-      //@ts-ignore
-      animation?.current?.play();
-    }, 500);
+    BootSplash.hide({ fade: true });
+    //@ts-ignore
+    animation?.current?.play();
 
-    return () => clearTimeout(timer);
-  }, []);
-
-  /**
-   * Navigate to home screen after animation
-   */
-  useEffect(()=>{
+    // Navigate to home screen after animation
     const timer = setTimeout(() => {
       navigation.reset({
         index: 0,
         routes: [{ name: 'Home' }],
       });
-    }, 2000);
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -44,6 +36,11 @@ const Splash = ({ navigation }: any) => {
         loop={false}
         speed={1.8}
         source={source}
+        //onAnimationFinish = {() => {
+          // https://github.com/lottie-react-native/lottie-react-native/blob/master/docs/api.md#component-api
+          // This appears to fire in "normal" 1x speed, not the 1.8x above
+          // console.log('onAnimationFinish....');
+        //}}
       />
     </View>
   );
