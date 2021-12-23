@@ -130,6 +130,10 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
+    dexOptions {
+        jumboMode true
+    }
+
     defaultConfig {
         applicationId "com.getterhiss"
         minSdkVersion rootProject.ext.minSdkVersion
