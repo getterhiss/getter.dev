@@ -1,5 +1,6 @@
 package com.getterhiss;
 
+import android.os.Bundle;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.zoontek.rnbootsplash.RNBootSplash;
@@ -27,4 +28,12 @@ public class MainActivity extends ReactActivity {
     };
   }
 
+  /**
+   * For React Navigation Screens
+   * https://reactnavigation.org/docs/getting-started/#installing-dependencies-into-a-bare-react-native-project
+   */
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(null);
+  }
 }
