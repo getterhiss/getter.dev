@@ -18,6 +18,8 @@ import {
 
 import { requestAndroidPermissions, requestiOSPermissions } from 'utils/permissions';
 
+import DraggableBox from 'components/DraggableBox';
+
 const Video = ({ navigation, route }: any) => {
 
   const [isAudioEnabled, setIsAudioEnabled] = useState<boolean>(true);
@@ -144,10 +146,12 @@ const Video = ({ navigation, route }: any) => {
       {(status === 'connected' || status === 'connecting') &&
         <View style={styles.callContainer}>
 
-          <TwilioVideoLocalView
-            enabled={true}
-            style={styles.localVideo}
-          />
+          <DraggableBox boxStyle={styles.localVideoBox}>
+            <TwilioVideoLocalView
+              enabled={true}
+              style={styles.localVideo}
+            />
+          </DraggableBox>
 
           {status === 'connected' && Array.from(videoTracks, ([trackSid, trackIdentifier]) => (
             <TwilioVideoParticipantView
@@ -204,14 +208,17 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
   },
-  localVideo: {
-    flex: 1,
+  localVideoBox: {
     width: 150,
     height: 250,
     position: 'absolute',
     right: 10,
     top: 10,
     zIndex: 99,
+  },
+  localVideo: {
+    width: '100%',
+    height: '100%',
   },
   remoteVideo: {
     position: 'absolute',
@@ -228,6 +235,7 @@ const styles = StyleSheet.create({
     height: 100,
     flexDirection: 'row',
     alignItems: 'center',
+    zIndex: 999,
   },
   optionButton: {
     width: 60,

@@ -376,6 +376,8 @@ PODS:
     - React-Core
   - RNDeviceInfo (8.4.8):
     - React-Core
+  - RNGestureHandler (2.1.0):
+    - React-Core
   - RNPermissions (3.2.0):
     - React-Core
   - RNScreens (3.10.1):
@@ -451,6 +453,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNBootSplash (from `../node_modules/react-native-bootsplash`)
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
+  - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -553,6 +556,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-bootsplash"
   RNDeviceInfo:
     :path: "../node_modules/react-native-device-info"
+  RNGestureHandler:
+    :path: "../node_modules/react-native-gesture-handler"
   RNPermissions:
     :path: "../node_modules/react-native-permissions"
   RNScreens:
@@ -614,6 +619,7 @@ SPEC CHECKSUMS:
   ReactCommon: 57b69f6383eafcbd7da625bfa6003810332313c4
   RNBootSplash: 5e82ba24a59a07315cbb2bb4855bb8d76fc7e802
   RNDeviceInfo: 0400a6d0c94186d1120c3cbd97b23abc022187a9
+  RNGestureHandler: e5c7cab5f214503dcefd6b2b0cefb050e1f51c4a
   RNPermissions: f7ebe52db07c00901127966ca080b4ec6a6ceb0a
   RNScreens: 522705f2e5c9d27efb17f24aceb2bf8335bc7b8e
   TwilioVideo: 4afaac028c5886f2f3b313a9fcc146a6b7ca34e2
