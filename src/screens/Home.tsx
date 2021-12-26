@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, View } from 'react-native';
 
 import BootSplash from 'react-native-bootsplash';
 import { getUniqueId } from 'react-native-device-info';
+
+import Quotable from 'components/Quote';
 import { twilio } from 'utils/jwt';
 
 const Home = ({ navigation }: any) => {
 
-  const [quote, setQuote] = useState('');
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState<string>('');
 
   useEffect(() => {
     BootSplash.hide({ fade: true });
@@ -20,22 +21,17 @@ const Home = ({ navigation }: any) => {
     const room = 'test';
     const uid = getUniqueId();
 
-    // Ping Kanye {W}EST API
-    fetch('https://api.kanye.rest')
-      .then((res) => res.json())
-      .then((res) => setQuote(res.quote))
-      .catch((err) => console.warn('Error Kanye Quote: ', err?.message));
-    
     // Generate a Twilio JWT Token
     const jwt = twilio(uid, room);
     if(jwt){
       setToken(jwt);
     }
+    
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{quote} {quote && ' - Kanye'}</Text>
+      <Quotable />
       {!!token && <Button 
         onPress={() => navigation.navigate('Video', { token })} 
         title={'Video Chat'}
@@ -53,10 +49,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffc0cb',
     justifyContent: "center",
     alignItems: 'center'
-  },
-  text: {
-    paddingHorizontal: 20,
-    textAlign: 'center',
-    marginBottom: 40
   },
 });
