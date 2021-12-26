@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Button, StyleSheet, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import BootSplash from 'react-native-bootsplash';
 import { getUniqueId } from 'react-native-device-info';
 
 import Quotable from 'components/Quote';
 import { twilio } from 'utils/jwt';
+
+import VideoIcon from 'assets/icons/VideoIcon';
 
 const Home = ({ navigation }: any) => {
 
@@ -32,11 +34,11 @@ const Home = ({ navigation }: any) => {
   return (
     <View style={styles.container}>
       <Quotable />
-      {!!token && <Button 
-        onPress={() => navigation.navigate('Video', { token })} 
-        title={'Video Chat'}
-        color={'black'}
-      />}
+      {!!token && (
+        <TouchableOpacity onPress={() => navigation.navigate('Video', { token })}>
+          <VideoIcon height={72} width={72}/>
+        </TouchableOpacity>
+      )}
     </View>
   );
 }

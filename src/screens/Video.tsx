@@ -18,6 +18,7 @@ import {
 
 import { requestAndroidPermissions, requestiOSPermissions } from 'utils/permissions';
 
+import DragIcon from 'assets/icons/DragIcon';
 import DraggableBox from 'components/DraggableBox';
 
 const Video = ({ navigation, route }: any) => {
@@ -147,6 +148,7 @@ const Video = ({ navigation, route }: any) => {
         <View style={styles.callContainer}>
 
           <DraggableBox boxStyle={styles.localVideoBox}>
+            <DragIcon style={styles.localVideoIcon} />
             <TwilioVideoLocalView
               enabled={true}
               style={styles.localVideo}
@@ -216,9 +218,16 @@ const styles = StyleSheet.create({
     top: 10,
     zIndex: 99,
   },
+  localVideoIcon: {
+    position: 'absolute',
+    left: 0,
+    bottom: 2,
+    zIndex: 100,
+  },
   localVideo: {
     width: '100%',
     height: '100%',
+    backgroundColor: 'pink',
   },
   remoteVideo: {
     position: 'absolute',

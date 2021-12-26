@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Lottie from 'lottie-react-native';
-import source from 'assets/g-icon.json';
+import source from 'assets/lottie/g-icon.json';
 
 import BootSplash from 'react-native-bootsplash';
 
