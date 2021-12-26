@@ -35,9 +35,11 @@ const Quotable = () => {
  
   return (
     <TouchableOpacity onPress={() => getQuote()}>
-      <Text style={styles.text}>
-        {content} {!!author && ` - ${author}`}
-      </Text>
+      {!!content && (
+        <Text style={styles.text}>
+          "{content}" {!!author && ` - ${author}`}
+        </Text>
+      )}
     </TouchableOpacity>
   )
 };
@@ -46,6 +48,9 @@ export default Quotable;
 
 const styles = StyleSheet.create({
   text: {
+    fontFamily: 'corben',
+    fontSize: 24,
+    lineHeight: 28,
     paddingHorizontal: 20,
     textAlign: 'center',
     marginBottom: 40

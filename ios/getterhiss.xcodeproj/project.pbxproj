@@ -13,6 +13,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		6172F2D35A4C3AA820D92908 /* libPods-getterhiss.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6423831EA8574132BED9D8CC /* libPods-getterhiss.a */; };
 		7EF68E3733C33B6898317E18 /* libPods-getterhiss-getterhissTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFE59519B596E51CEFDCCC0 /* libPods-getterhiss-getterhissTests.a */; };
+		C6C6D6C7569D49BCA20A9504 /* corben.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E92522BE6C3B488AB62ADA9D /* corben.ttf */; };
 		D334AF5927713B5D00630CF6 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D334AF5827713B5D00630CF6 /* BootSplash.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		C0A881CF5CF3F2B244570E2A /* Pods-getterhiss.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-getterhiss.debug.xcconfig"; path = "Target Support Files/Pods-getterhiss/Pods-getterhiss.debug.xcconfig"; sourceTree = "<group>"; };
 		D00AAFFCFCFDA5787532823F /* Pods-getterhiss.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-getterhiss.release.xcconfig"; path = "Target Support Files/Pods-getterhiss/Pods-getterhiss.release.xcconfig"; sourceTree = "<group>"; };
 		D334AF5827713B5D00630CF6 /* BootSplash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BootSplash.storyboard; path = getterhiss/BootSplash.storyboard; sourceTree = "<group>"; };
+		E92522BE6C3B488AB62ADA9D /* corben.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = corben.ttf; path = ../src/assets/fonts/corben.ttf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -122,6 +124,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				E233CBF5F47BEE60B243DCF8 /* Pods */,
+				CB0B6280357743BBBCEBA684 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -135,6 +138,15 @@
 				00E356EE1AD99517003FC87E /* getterhissTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CB0B6280357743BBBCEBA684 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E92522BE6C3B488AB62ADA9D /* corben.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		E233CBF5F47BEE60B243DCF8 /* Pods */ = {
@@ -244,6 +256,7 @@
 			files = (
 				D334AF5927713B5D00630CF6 /* BootSplash.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				C6C6D6C7569D49BCA20A9504 /* corben.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

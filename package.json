@@ -18,6 +18,7 @@
     "ios:pods": "cd ios && pod install && cd ..",
     "ios:xcode": "xed ios",
     "ios:logs": "react-native log-ios",
+    "setup:fonts": "react-native link",
     "setup:icons": "react-native-svg-app-icon",
     "setup:splash": "react-native generate-bootsplash icon.png --background-color=FFC0CB --logo-width=1",
     "test": "jest",
